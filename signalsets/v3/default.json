@@ -29,7 +29,7 @@
     {"id": "KONAEV_HVBAT_CHARGING",   "path": "Battery", "fmt": {"bix": 72,  "len": 1,  "max": 1,                                                "unit": "offon"         }, "name": "HV battery charging",               "suggestedMetric": "isCharging"},
     {"id": "KONAEV_HVBAT_PLUG_RAPD",  "path": "Battery", "fmt": {"bix": 73,  "len": 1,  "max": 1,                                                "unit": "offon"         }, "name": "Rapid charge port state",           "suggestedMetric": "pluggedIn"},
     {"id": "KONAEV_HVBAT_PLUG_NORM",  "path": "Battery", "fmt": {"bix": 74,  "len": 1,  "max": 1,                                                "unit": "offon"         }, "name": "Normal charge port state",          "suggestedMetric": "pluggedIn"},
-    {"id": "KONAEV_HVBAT_CURR",       "path": "Battery", "fmt": {"bix": 80,  "len": 16, "max": 6553.5,                  "div": 10,               "unit": "amps"          }, "name": "HV battery current"},
+    {"id": "KONAEV_HVBAT_CURR",       "path": "Battery", "fmt": {"bix": 80,  "len": 16, "max": 6553.5,  "min": -6553.5  "div": 10,               "unit": "amps"          }, "name": "HV battery current"},
     {"id": "KONAEV_HVBAT_VDC",        "path": "Battery", "fmt": {"bix": 96,  "len": 16, "max": 6553.5,                  "div": 10,               "unit": "volts"         }, "name": "HV battery voltage (DC)"},
     {"id": "KONAEV_HVBAT_T_MAX",      "path": "Battery", "fmt": {"bix": 112, "len": 8,  "max": 127,        "min": -127,            "sign": true, "unit": "celsius"       }, "name": "HV battery temperature (max)"},
     {"id": "KONAEV_HVBAT_T_MIN",      "path": "Battery", "fmt": {"bix": 120, "len": 8,  "max": 127,        "min": -127,            "sign": true, "unit": "celsius"       }, "name": "HV battery temperature (min)"},
@@ -211,56 +211,6 @@
         }}
     }
   ]},
-  
-  { "hdr": "7E0", "rax": "7E8", "cmd": {"01": "A6"}, "freq": 1,
-  "signals": [
-    {"id": "ODO", "path": "Trips.Generic", "fmt": { "len": 32, "max": 429496729.5, "div": 10, "unit": "kilometers" }, "name": "Odometer", "suggestedMetric": "odometer"}
-  ]},
-{ "hdr": "7E0", "rax": "7E8", "cmd": {"01": "AA"}, "freq": 0.25,
-  "signals": [
-    {"id": "V_SET", "path": "Movement.Generic", "fmt": { "len": 8, "max": 255, "unit": "kilometersPerHour" }, "name": "Maximum current vehicle speed limit"}
-  ]},
-  { "hdr": "7E0", "rax": "7E8", "cmd": {"01": "0D"}, "freq": 0.25,
-  "signals": [
-    {"id": "VSS", "path": "Movement.Generic", "fmt": { "len": 8, "max": 255, "nullmax": 255, "unit": "kilometersPerHour" }, "name": "Vehicle speed", "suggestedMetric": "speed"}
-  ]},
-  { "hdr": "7E0", "rax": "7E8", "cmd": {"01": "11"}, "freq": 0.25,
-  "signals": [
-    {"id": "TP", "path": "Control.Generic", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Absolute throttle position", "description": "Throttle position at idle will usually be more than 0%, and throttle position at wide open throttle will usually be less than 100%."}
-  ]},
-  { "hdr": "7E0", "rax": "7E8", "cmd": {"01": "45"}, "freq": 0.25,
-  "signals": [
-    {"id": "TP_R", "path": "Control.Generic", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Relative throttle position", "description": "Relative or 'learned' throttle position."}
-  ]},
-{ "hdr": "7E0", "rax": "7E8", "cmd": {"01": "46"}, "freq": 15,
-  "signals": [
-    {"id": "AAT", "path": "Climate.Generic", "fmt": { "len": 8, "max": 215, "min": -40, "add": -40, "unit": "celsius" }, "name": "Ambient air temperature"}
-  ]},
-{ "hdr": "7E0", "rax": "7E8", "cmd": {"01": "47"}, "freq": 0.25,
-  "signals": [
-    {"id": "TP_B", "path": "Control.Generic", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Absolute throttle position B"}
-  ]},
-{ "hdr": "7E0", "rax": "7E8", "cmd": {"01": "48"}, "freq": 0.25,
-  "signals": [
-    {"id": "TP_C", "path": "Control.Generic", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Absolute throttle position C"}
-  ]},
-{ "hdr": "7E0", "rax": "7E8", "cmd": {"01": "49"}, "freq": 0.25,
-  "signals": [
-    {"id": "APP_D", "path": "Control.Pedals.Generic", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Accelerator pedal position D"}
-  ]},
-{ "hdr": "7E0", "rax": "7E8", "cmd": {"01": "4A"}, "freq": 0.25,
-  "signals": [
-    {"id": "APP_E", "path": "Control.Pedals.Generic", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Accelerator pedal position E"}
-  ]},
-{ "hdr": "7E0", "rax": "7E8", "cmd": {"01": "4B"}, "freq": 0.25,
-  "signals": [
-    {"id": "APP_F", "path": "Control.Pedals.Generic", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Accelerator pedal position F"}
-  ]},
-  { "hdr": "7E0", "rax": "7E8", "cmd": {"01": "5A"}, "freq": 0.25,
-  "signals": [
-    {"id": "APP_R", "path": "Control.Pedals.Generic", "fmt": { "len": 8, "max": 100, "mul": 100, "div": 255, "unit": "percent" }, "name": "Accelerator pedal position (relative)"}
-  ]},
-  
 { "hdr": "7E4", "rax": "7EC", "fcm1": true, "cmd": {"22": "0105"}, "freq": 1, "dbgfilter": { "to": 2020, "from": 2025 },
   "signals": [
     {"id": "KONAEV_HVBAT_C_DEV_V",     "path": "Battery",             "fmt": {"bix": 160, "len": 8,  "max": 5.1,              "div": 50,                               "unit": "volts"   }, "name": "HV cell deviation (voltage)"},
