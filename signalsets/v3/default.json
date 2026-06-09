@@ -225,7 +225,145 @@
     {"id": "KONAEV_HVBAT_SOC_DISP",    "path": "Battery",             "fmt": {"bix": 248, "len": 8,  "max": 100,              "div": 2,                                "unit": "percent" }, "name": "HV battery charge",                  "suggestedMetric": "stateOfCharge"},
     {"id": "KONAEV_HVBAT_CMU097_VOLT", "path": "Battery.Modules.097", "fmt": {"bix": 272, "len": 8,  "max": 4.2, "min": 2.8,  "div": 50,                               "unit": "volts"   }, "name": "HV battery module 097 voltage"},
     {"id": "KONAEV_HVBAT_CMU098_VOLT", "path": "Battery.Modules.098", "fmt": {"bix": 280, "len": 8,  "max": 4.2, "min": 2.8,  "div": 50,                               "unit": "volts"   }, "name": "HV battery module 098 voltage"}
-  ]}
+  ]}, 
+
+  { "hdr": "730", "rax": "738", "dbg": true, "cmd": {"22": "F010"}, "freq": 0.25,
+  "signals": [
+    {"id": "HYUNDAI_STEERING_ANGLE",            "path": "Control",     "fmt": {"bix": 96,  "len": 16, "blsb": true, "max": 3276.7, "min": -3276.8,               "div": 10,                   "sign": true,                   "unit": "degrees"                },                  "name": "Steering wheel angle"},
+    {"id": "HYUNDAI_LATERAL_ACCELERATION",      "path": "Orientation", "fmt": {"bix": 112, "len": 16, "blsb": true, "max": 4.177,  "min": -4.177,  "mul": 8.354, "div": 65535, "add": -4.177,                                 "unit": "metersPerSecondSquared" },                  "name": "Lateral acceleration"},
+    {"id": "HYUNDAI_LONGITUDINAL_ACCELERATION", "path": "Orientation", "fmt": {"bix": 128, "len": 16, "blsb": true, "max": 4.177,  "min": -4.177,  "mul": 8.354, "div": 65535, "add": -4.177,                                 "unit": "metersPerSecondSquared" },                  "name": "Longitudinal acceleration"},
+    {"id": "HYUNDAI_YAW_RATE",                  "path": "Orientation", "fmt": {"bix": 144, "len": 8,  "max": 1.275,                                "div": 200,                                              "unit": "degrees" },                               "name": "Yaw rate"}
+  ]},
+  { "hdr": "744", "rax": "74C", "fcm1": true, "dbg": true, "cmd": {"22": "E001"}, "freq": 1,
+  "signals": [
+    {"id": "HYUNDAI_AUX_BATTERY_VOLTAGE",  "path": "Battery.Charging", "fmt": {"bix": 88,  "len": 16, "max": 655.35,                        "div": 100,             "unit": "volts" }, "name": "Auxiliary battery voltage"},
+    {"id": "HYUNDAI_DC_CHRG_STATE",        "path": "Battery.Charging", "fmt": {"bix": 140, "len": 1,  "max": 1,                                                     "unit": "offon" }, "name": "DC charging state"},
+    {"id": "HYUNDAI_AC_CHRG_STATE",        "path": "Battery.Charging", "fmt": {"bix": 141, "len": 1,  "max": 1,                                                     "unit": "offon" }, "name": "AC charging state"},
+    {"id": "HYUNDAI_OBC_CHRG_DC_VOLTAGE",  "path": "Battery.Charging", "fmt": {"bix": 152, "len": 16, "max": 6553.5,                        "div": 10,              "unit": "volts" }, "name": "On-board charger, charging DC voltage"},
+    {"id": "HYUNDAI_OBC_CHRG_DC_CURRENT",  "path": "Battery.Charging", "fmt": {"bix": 168, "len": 16, "max": 6553.5,                        "div": 10,              "unit": "amps"  }, "name": "On-board charger, charging DC current"},
+    {"id": "HYUNDAI_OBC_CHRG_AC_CURRENT",  "path": "Battery.Charging", "fmt": {"bix": 184, "len": 16, "max": 6553.5,                        "div": 10,              "unit": "amps"  }, "name": "On-board charger, charging AC current"},
+    {"id": "HYUNDAI_OBC_CHRG_AC_VOLTAGE",  "path": "Battery.Charging", "fmt": {"bix": 200, "len": 8,  "max": 255,                                                   "unit": "volts" }, "name": "On-board charger, charging AC voltage"},
+    {"id": "HYUNDAI_OBC_DCHRG_DC_CURRENT", "path": "Battery.Charging", "fmt": {"bix": 208, "len": 8,  "max": 255,                                                   "unit": "amps"  }, "name": "On-board charger, discharging DC current"},
+    {"id": "HYUNDAI_OBC_DCHRG_AC_CURRENT", "path": "Battery.Charging", "fmt": {"bix": 216, "len": 8,  "max": 255,                                                   "unit": "amps"  }, "name": "On-board charger, discharging AC current"},
+    {"id": "HYUNDAI_ESTIMATED_CHRG_POWER", "path": "Battery.Charging", "fmt": {"bix": 224, "len": 16, "max": 655300, "min": -50, "mul": 10,             "add": -50, "unit": "watts" }, "name": "Estimated charging power"}
+  ]},
+  { "hdr": "744", "rax": "74C", "dbg": true, "cmd": {"22": "E002"}, "freq": 0.25,
+  "signals": [
+    {"id": "HYUNDAI_EVSE_MAXIMUM_VOLTAGE_VALUE",              "path": "Battery.Charging", "fmt": {"bix": 72,  "len": 16, "max": 6553.5,                        "div": 10,               "unit": "volts"         }, "name": "Electric vehicle supply equipment, voltage, max"},
+    {"id": "HYUNDAI_EVSE_MAXIMUM_CURRENT_VALUE",              "path": "Battery.Charging", "fmt": {"bix": 88,  "len": 16, "max": 6553.5,                        "div": 10,               "unit": "amps"          }, "name": "Electric vehicle supply equipment, current, max"},
+    {"id": "HYUNDAI_EVSE_MINIMUM_VOLTAGE_VALUE",              "path": "Battery.Charging", "fmt": {"bix": 104, "len": 16, "max": 6553.5,                        "div": 10,               "unit": "volts"         }, "name": "Electric vehicle supply equipment, voltage, min"},
+    {"id": "HYUNDAI_EVSE_MINIMUM_CURRENT_VALUE",              "path": "Battery.Charging", "fmt": {"bix": 120, "len": 16, "max": 6553.5,                        "div": 10,               "unit": "amps"          }, "name": "Electric vehicle supply equipment, current, min"},
+    {"id": "HYUNDAI_EVSE_V",                                  "path": "Battery.Charging", "fmt": {"bix": 136, "len": 16, "max": 6553.5,                        "div": 10,               "unit": "volts"         }, "name": "Electric vehicle supply equipment, voltage"},
+    {"id": "HYUNDAI_EVSE_C",                                  "path": "Battery.Charging", "fmt": {"bix": 152, "len": 16, "max": 6553.5,                        "div": 10,               "unit": "amps"          }, "name": "Electric vehicle supply equipment, current"},
+    {"id": "HYUNDAI_EVSE_CURRENT_REGULATION_TOLERANCE_VALUE", "path": "Battery.Charging", "fmt": {"bix": 176, "len": 8,  "max": 205,    "min": -50,                         "add": -50, "unit": "amps"          }, "name": "Electric vehicle supply equipment, regulation tolerance"},
+    {"id": "HYUNDAI_EVSE_DELIVERED_POWER_VALUE",              "path": "Battery.Charging", "fmt": {"bix": 184, "len": 16, "max": 655.35,             "mul": 10, "div": 1000,             "unit": "kilowattHours" }, "name": "Electric vehicle supply equipment, power, delivered"},
+    {"id": "HYUNDAI_EVSE_MAXIMUM_POWER_VALUE",                "path": "Battery.Charging", "fmt": {"bix": 200, "len": 16, "max": 655350,             "mul": 10,                          "unit": "watts"         }, "name": "Electric vehicle supply equipment, power, max"},
+    {"id": "HYUNDAI_EVSE_MAIN_POWER",                         "path": "Battery.Charging", "fmt": {"bix": 216, "len": 8,  "max": 255,                                                    "unit": "kilowatts"     }, "name": "Electric vehicle supply equipment, power, main"}
+  ]},
+  { "hdr": "770", "rax": "778", "dbg": true, "cmd": {"22": "BC03"}, "freq": 1,
+  "signals": [
+    {"id": "HYUNDAI_TRUNK",          "path": "Doors",     "fmt": {"bix": 32, "len": 1, "max": 1,   "unit": "noyes"  }, "name": "Trunk open?"},
+    {"id": "HYUNDAI_DOOR_FL",        "path": "Doors",     "fmt": {"bix": 34, "len": 1, "max": 1,   "unit": "noyes"  }, "name": "Front left door open?"},
+    {"id": "HYUNDAI_DOOR_FR",        "path": "Doors",     "fmt": {"bix": 35, "len": 1, "max": 1,   "unit": "noyes"  }, "name": "Front right door open?"},
+    {"id": "HYUNDAI_HANDBRAKE",      "path": "Control",   "fmt": {"bix": 36, "len": 1, "max": 1,   "unit": "noyes"  }, "name": "Handbrake engaged?"},
+    {"id": "HYUNDAI_DOOR_RR",        "path": "Doors",     "fmt": {"bix": 37, "len": 1, "max": 1,   "unit": "noyes"  }, "name": "Rear right door open?"},
+    {"id": "HYUNDAI_DOOR_RL",        "path": "Doors",     "fmt": {"bix": 39, "len": 1, "max": 1,   "unit": "noyes"  }, "name": "Rear left door open?"},
+    {"id": "HYUNDAI_BELT_PASSENGER", "path": "Seatbelts", "fmt": {"bix": 40, "len": 1, "max": 1,   "unit": "noyes"  }, "name": "Seatbelt passenger"},
+    {"id": "HYUNDAI_BELT_DRIVER",    "path": "Seatbelts", "fmt": {"bix": 41, "len": 1, "max": 1,   "unit": "noyes"  }, "name": "Seatbelt driver"},
+    {"id": "HYUNDAI_BELT_PASS",      "path": "Seatbelts", "fmt": {"bix": 45, "len": 1, "max": 1,   "unit": "noyes"  }, "name": "Passenger seatbelt latched?"},
+    {"id": "HYUNDAI_BELT_DRIV",      "path": "Seatbelts", "fmt": {"bix": 46, "len": 1, "max": 1,   "unit": "noyes"  }, "name": "Driver seatbelt latched?"},
+    {"id": "HYUNDAI_HOOD",           "path": "Doors",     "fmt": {"bix": 47, "len": 1, "max": 1,   "unit": "noyes"  }, "name": "Hood latched?"},
+    {"id": "HYUNDAI_LOW_BEAMS",      "path": "Lights",    "fmt": {"bix": 48, "len": 8, "max": 255, "unit": "scalar" }, "name": "Low beams"},
+    {"id": "HYUNDAI_DEFOG_SW",       "path": "Climate",   "fmt": {"bix": 62, "len": 1, "max": 1,   "unit": "noyes"  }, "name": "Defogging?"}
+  ]},
+  { "hdr": "770", "rax": "778", "dbg": true, "cmd": {"22": "BC05"}, "freq": 1,
+  "signals": [
+    {"id": "HYUNDAI_HAZARD_SW", "path": "Lights", "fmt": {"bix": 32, "len": 8, "max": 255,                             "unit": "scalar" }, "name": "Hazard switch"},
+    {"id": "HYUNDAI_HL_SW",     "path": "Lights", "fmt": {"bix": 48, "len": 8, "max": 1,   "nullmin": 0, "nullmax": 2, "unit": "noyes"  }, "name": "Headlight switch (raw >2)"}
+  ]},
+{ "hdr": "770", "rax": "778", "dbg": true, "cmd": {"22": "BC06"}, "freq": 1,
+  "signals": [
+    {"id": "HYUNDAI_BRAKE_LIGHT", "path": "Lights", "fmt": {"bix": 32, "len": 8, "max": 255, "unit": "scalar" }, "name": "Brake light"}
+  ]},
+{ "hdr": "770", "rax": "778", "dbg": true, "cmd": {"22": "BC07"}, "freq": 1,
+  "signals": [
+    {"id": "HYUNDAI_DEFOG_LIGHT", "path": "Climate", "fmt": {"bix": 47, "len": 1, "max": 1, "unit": "offon" }, "name": "Defog light"}
+  ]},
+{ "hdr": "770", "rax": "778", "dbg": true, "cmd": {"22": "BC08"}, "freq": 2,
+  "signals": [
+    {"id": "HYUNDAI_TURN_R", "path": "Lights", "fmt": {"bix": 37, "len": 1, "max": 1, "unit": "offon" }, "name": "Right turn signal on? (raw >3)"},
+    {"id": "HYUNDAI_TURN_L", "path": "Lights", "fmt": {"bix": 38, "len": 1, "max": 1, "unit": "offon" }, "name": "Left turn signal on? (raw >1)"}
+  ]},
+{ "hdr": "770", "rax": "778", "dbg": true, "cmd": {"22": "BC09"}, "freq": 1,
+  "signals": [
+    {"id": "HYUNDAI_HL_HIGH", "path": "Lights", "fmt": {"bix": 55, "len": 1, "max": 1, "unit": "offon" }, "name": "Headlight high beam"},
+    {"id": "HYUNDAI_HL_LOW",  "path": "Lights", "fmt": {"bix": 63, "len": 1, "max": 1, "unit": "offon" }, "name": "Headlight low beam"}
+  ]},
+  { "hdr": "7B3", "rax": "7BB", "fcm1": true, "dbg": true, "cmd": {"22": "0100"}, "freq": 0.5,
+  "signals": [
+    {"id": "HYUNDAI_HVAC_IAT",                                    "path": "Climate",  "fmt": {"bix": 40,  "len": 8, "max": 87.5, "min": -40, "div": 2, "add": -40, "unit": "celsius"           }, "name": "Interior temperature, front"},
+    {"id": "HYUNDAI_TEMP_INT",                                    "path": "Climate",  "fmt": {"bix": 40,  "len": 8, "max": 80,   "min": -40, "div": 2, "add": -40, "unit": "celsius"           }, "name": "Interior Temperature"},
+    {"id": "HYUNDAI_HVAC_AAT",                                    "path": "Climate",  "fmt": {"bix": 48,  "len": 8, "max": 87.5, "min": -40, "div": 2, "add": -40, "unit": "celsius"           }, "name": "Outdoor temperature"},
+    {"id": "HYUNDAI_TEMP_EXT",                                    "path": "Climate",  "fmt": {"bix": 48,  "len": 8, "max": 80,   "min": -40, "div": 2, "add": -40, "unit": "celsius"           }, "name": "Exterior Temperature"},
+    {"id": "HYUNDAI_HVAC_EVAPORATOR_T",                           "path": "Climate",  "fmt": {"bix": 56,  "len": 8, "max": 87.5, "min": -40, "div": 2, "add": -40, "unit": "celsius"           }, "name": "Evaporator temperature"},
+    {"id": "HYUNDAI_HVAC_HUMIDITY_SENSOR_FOR_AUTOMATIC_DEFOGGER", "path": "Climate",  "fmt": {"bix": 200, "len": 8, "max": 100,                                    "unit": "percent"           }, "name": "Humidity sensor for automatic defogger"},
+    {"id": "HYUNDAI_HVAC_IAT_DRIVER_VENT",                        "path": "Climate",  "fmt": {"bix": 216, "len": 8, "max": 87.5, "min": -40, "div": 2, "add": -40, "unit": "celsius"           }, "name": "Interior temperature, driver vent"},
+    {"id": "HYUNDAI_HVAC_IAT_DRIVER_LEGS_VENT",                   "path": "Climate",  "fmt": {"bix": 224, "len": 8, "max": 87.5, "min": -40, "div": 2, "add": -40, "unit": "celsius"           }, "name": "Interior temperature, driver legs vent"},
+    {"id": "HYUNDAI_VSS",                                         "path": "Movement", "fmt": {"bix": 232, "len": 8, "max": 255,                                    "unit": "kilometersPerHour" }, "name": "Vehicle speed",                          "suggestedMetric": "speed"}
+  ]},
+  { "hdr": "7B3", "rax": "7BB", "dbg": true, "cmd": {"22": "0101"}, "freq": 1,
+  "signals": [
+    {"id": "HYUNDAI_HVAC_IAT_PASSENGER_VENT",      "path": "Climate", "fmt": {"bix": 64, "len": 8, "max": 87.5, "min": -40, "div": 2, "add": -40, "unit": "celsius" }, "name": "Interior temperature, passenger vent"},
+    {"id": "HYUNDAI_HVAC_IAT_PASSENGER_LEGS_VENT", "path": "Climate", "fmt": {"bix": 72, "len": 8, "max": 87.5, "min": -40, "div": 2, "add": -40, "unit": "celsius" }, "name": "Interior temperature, passenger legs vent"}
+  ]},
+  { "hdr": "7D4", "rax": "7DC", "dbg": true, "cmd": {"21": "01"}, "freq": 1,
+  "signals": [
+    {"id": "HYUNDAI_STEER_ANGLE_V2", "path": "Control", "fmt": {"bix": 24, "len": 16, "max": 3276.7, "min": -3276.8, "mul": 10, "div": 100, "sign": true, "unit": "degrees" }, "name": "Steering angle"},
+    {"id": "HYUNDAI_STEER_ANGLE_V3", "path": "Control", "fmt": {"bix": 72, "len": 16, "max": 3276,   "min": -3276,              "div": 10,  "sign": true, "unit": "degrees" }, "name": "Steering wheel angle"}
+  ]},
+  { "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"21": "A0"}, "freq": 0.25,
+  "signals": [
+    {"id": "HYUNDAI_ENGINE_RPM_TCM",        "path": "Engine",       "fmt": {"bix": 32,  "len": 16, "max": 16383.75,                          "div": 4,                "unit": "rpm"               }, "name": "Engine RPM"},
+    {"id": "HYUNDAI_VEHICLE_SPEED",         "path": "Movement",     "fmt": {"bix": 48,  "len": 8,  "max": 255,                                                        "unit": "kilometersPerHour" }, "name": "Vehicle speed",                            "suggestedMetric": "speed"},
+    {"id": "HYUNDAI_APP_REL_TCM",           "path": "Control",      "fmt": {"bix": 64,  "len": 8,  "max": 100,                   "mul": 100, "div": 255,              "unit": "percent"           }, "name": "Relative accelerator pedal position"},
+    {"id": "HYUNDAI_TURBINE_SPEED",         "path": "Engine",       "fmt": {"bix": 72,  "len": 16, "max": 16383.75,                          "div": 4,                "unit": "rpm"               }, "name": "Turbine speed"},
+    {"id": "HYUNDAI_OUTPUT_SPEED",          "path": "Engine",       "fmt": {"bix": 88,  "len": 16, "max": 16383.75,                          "div": 4,                "unit": "rpm"               }, "name": "Output speed"},
+    {"id": "HYUNDAI_ATF_T",                 "path": "Engine",       "fmt": {"bix": 104, "len": 8,  "max": 215,      "min": -40,                          "add": -40,  "unit": "celsius"           }, "name": "Automatic transmission fluid temperature", "suggestedMetric": "transmissionFluidTemperature"},
+    {"id": "HYUNDAI_TORQUE_CONVERTER_SLIP", "path": "Engine",       "fmt": {"bix": 128, "len": 16, "max": 15871.75, "min": -512,             "div": 4,   "add": -512, "unit": "rpm"               }, "name": "Torque converter slip"},
+    {"id": "HYUNDAI_CURRENT_GEAR",          "path": "Transmission", "fmt": {"bix": 168, "len": 8,  "max": 255,                                                        "unit": "scalar"            }, "name": "Current gear"},
+    {"id": "HYUNDAI_COMMANDED_GEAR",        "path": "Transmission", "fmt": {"bix": 176, "len": 8,  "max": 255,                                                        "unit": "scalar"            }, "name": "Commanded gear"},
+    {"id": "HYUNDAI_BRAKE_PEDAL",           "path": "Control",      "fmt": {"bix": 192, "len": 8,  "max": 255,                                                        "unit": "scalar"            }, "name": "Brake pedal"},
+    {"id": "HYUNDAI_GEAR", "path": "Transmission", "name": "Current gear", "description": "The automatic transmission gear.", "fmt": {"bix": 152, "len": 8, "map": {
+          "1": { "description": "Neutral", "value": "NEUTRAL" },
+          "2": { "description": "Reverse", "value": "REVERSE" },
+          "3": { "description": "Park",    "value": "PARK" },
+          "4": { "description": "Manual",  "value": "MANUAL" }
+        }}
+    }
+  ]},
+  { "hdr": "7E1", "rax": "7E9", "dbg": true, "cmd": {"22": "01A0"}, "freq": 1,
+  "signals": [
+    {"id": "HYUNDAI_RPM_V3",                   "path": "Movement",     "fmt": {"bix": 32,  "len": 16, "max": 16383.75,                          "div": 4,                "unit": "rpm"               }, "name": "Engine RPM"},
+    {"id": "HYUNDAI_VSS_7E1",                  "path": "Movement",     "fmt": {"bix": 48,  "len": 8,  "max": 255,                                                        "unit": "kilometersPerHour" }, "name": "Vehicle speed",                            "suggestedMetric": "speed"},
+    {"id": "HYUNDAI_REL_APP",                  "path": "Movement",     "fmt": {"bix": 64,  "len": 8,  "max": 100,                   "mul": 100, "div": 255,              "unit": "percent"           }, "name": "Relative accelerator pedal position"},
+    {"id": "HYUNDAI_TURBINE_SPEED_V2",         "path": "Movement",     "fmt": {"bix": 72,  "len": 16, "max": 16383.75,                          "div": 4,                "unit": "rpm"               }, "name": "Turbine speed"},
+    {"id": "HYUNDAI_OUTPUT_SPEED_V2",          "path": "Movement",     "fmt": {"bix": 88,  "len": 16, "max": 16383.75,                          "div": 4,                "unit": "rpm"               }, "name": "Output speed"},
+    {"id": "HYUNDAI_ATF_T_V2",                 "path": "Engine",       "fmt": {"bix": 104, "len": 8,  "max": 215,      "min": -40,                          "add": -40,  "unit": "celsius"           }, "name": "Automatic transmission fluid temperature", "suggestedMetric": "transmissionFluidTemperature"},
+    {"id": "HYUNDAI_TORQUE_CONVERTER_SLIP_V2", "path": "Engine",       "fmt": {"bix": 128, "len": 16, "max": 15871.75, "min": -512,             "div": 4,   "add": -512, "unit": "rpm"               }, "name": "Torque converter slip"},
+    {"id": "HYUNDAI_GEAR_V2",                  "path": "Transmission", "fmt": {"bix": 160, "len": 8,  "max": 255,                                                        "unit": "scalar"            }, "name": "Gear selector"},
+    {"id": "HYUNDAI_CURRENT_GEAR_V2",          "path": "Transmission", "fmt": {"bix": 168, "len": 8,  "max": 255,                                                        "unit": "scalar"            }, "name": "Current gear"},
+    {"id": "HYUNDAI_COMMANDED_GEAR_V2",        "path": "Transmission", "fmt": {"bix": 176, "len": 8,  "max": 255,                                                        "unit": "scalar"            }, "name": "Commanded gear"},
+    {"id": "HYUNDAI_BRAKE_PEDAL_V2",           "path": "Control",      "fmt": {"bix": 192, "len": 8,  "max": 255,                                                        "unit": "scalar"            }, "name": "Brake pedal"}
+  ]},
+  { "hdr": "7E4", "rax": "7EC", "dbg": true, "cmd": {"22": "0111"}, "freq": 1,
+  "signals": [
+    {"id": "HYUNDAI_NORMAL_CHARGING_COUNT",      "path": "Battery", "fmt": {"bix": 32,  "len": 32, "max": 4294967295,                           "unit": "scalar"        }, "name": "Normal charging, count"},
+    {"id": "HYUNDAI_QUICK_CHARGING_COUNT",       "path": "Battery", "fmt": {"bix": 64,  "len": 32, "max": 4294967295,                           "unit": "scalar"        }, "name": "Quick charging, count"},
+    {"id": "HYUNDAI_NORMAL_CHARGING_ENERGY_TOT", "path": "Battery", "fmt": {"bix": 96,  "len": 32, "max": 4294967295,                           "unit": "kilowattHours" }, "name": "Normal charging energy, total"},
+    {"id": "HYUNDAI_QUICK_CHARGING_ENERGY_TOT",  "path": "Battery", "fmt": {"bix": 128, "len": 32, "max": 4294967295,                           "unit": "kilowattHours" }, "name": "Quick charging energy, total"},
+    {"id": "HYUNDAI_BATTERY_PACK_B17",           "path": "Battery", "fmt": {"bix": 208, "len": 8,  "max": 80,         "min": -40, "sign": true, "unit": "celsius"       }, "name": "Battery pack B17"},
+    {"id": "HYUNDAI_BATTERY_PACK_B18",           "path": "Battery", "fmt": {"bix": 216, "len": 8,  "max": 80,         "min": -40, "sign": true, "unit": "celsius"       }, "name": "Battery pack B18"}
+  ]},
 ],
 "signalGroups": [
   {"id": "KONAEV_HVBAT_CMU_VOLT", "path": "Battery.Modules", "matchingRegex": "KONAEV_HVBAT_(CMU\\d+)_VOLT", "name": "HV battery pack voltage", "suggestedMetricGroup": "batteryModulesVoltage"}
